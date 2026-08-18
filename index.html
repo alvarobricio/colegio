@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Recreo 2026-27 - pedidos, menú, eventos y avisos.">
+
+    <title>Recreo 2026-27</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container nav">
+
+        <a href="#inicio" class="logo">
+            <span class="logo-icon">🍊</span>
+            <span>
+                <strong>Recreo</strong>
+                <small>2026-27</small>
+            </span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#horarios">Horarios</a>
+            <a href="#informacion">Info</a>
+        </nav>
+
+        <button class="cart-button" id="openCart">
+            🛒
+            <span>Pedido</span>
+            <b id="cartCount">0</b>
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="container hero-grid">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    RECREO 2026-27
+                </span>
+
+                <h1>
+                    Tu recreo.<br>
+                    Tu pedido.
+                </h1>
+
+                <p>
+                    Haz tu pedido con antelación y recógelo
+                    durante el recreo.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#menu" class="btn btn-primary">
+                        Hacer pedido
+                    </a>
+
+                    <a href="#eventos" class="btn btn-secondary">
+                        Ver novedades
+                    </a>
+
+                </div>
+
+                <div class="hero-info">
+
+                    <div>
+                        <strong>11:15–11:45</strong>
+                        <span>Recogida</span>
+                    </div>
+
+                    <div>
+                        <strong>15:00</strong>
+                        <span>Límite día anterior</span>
+                    </div>
+
+                    <div>
+                        <strong>💶</strong>
+                        <span>Pago al recoger</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <div class="status-dot"></div>
+
+                <span class="card-label">
+                    PRÓXIMO SERVICIO
+                </span>
+
+                <h2 id="nextService">
+                    Cargando...
+                </h2>
+
+                <div class="service-time">
+                    11:15
+                    <span>→</span>
+                    11:45
+                </div>
+
+                <p>
+                    Recuerda hacer tu pedido antes
+                    de las 15:00 del día anterior.
+                </p>
+
+                <a href="#menu" class="card-link">
+                    Ver menú →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AVISO PRINCIPAL -->
+
+    <section class="notice-section">
+
+        <div class="container">
+
+            <div id="mainNotice" class="notice">
+                Cargando avisos...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+
+    <section class="section" id="menu">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">CARTA</span>
+                    <h2>Elige tu recreo</h2>
+                </div>
+
+                <p>
+                    Añade productos al pedido y revisa
+                    el carrito al terminar.
+                </p>
+
+            </div>
+
+
+            <div class="category-tabs" id="categoryTabs"></div>
+
+
+            <div class="product-grid" id="productGrid"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EVENTOS -->
+
+    <section class="section section-light" id="eventos">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">NOVEDADES</span>
+                    <h2>Eventos y noticias</h2>
+                </div>
+
+                <p>
+                    Aquí encontrarás avisos, días especiales
+                    y novedades del servicio.
+                </p>
+
+            </div>
+
+            <div class="events-grid" id="eventsGrid"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HORARIOS -->
+
+    <section class="section" id="horarios">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="eyebrow">ORGANIZACIÓN</span>
+                    <h2>Horarios</h2>
+                </div>
+
+            </div>
+
+            <div class="schedule-card">
+
+                <div class="schedule-main">
+
+                    <span>⏰</span>
+
+                    <div>
+                        <strong>Recogida del recreo</strong>
+                        <p>11:15 – 11:45</p>
+                    </div>
+
+                </div>
+
+                <div class="schedule-main">
+
+                    <span>📋</span>
+
+                    <div>
+                        <strong>Pedidos anticipados</strong>
+                        <p>Hasta las 15:00 del día anterior</p>
+                    </div>
+
+                </div>
+
+                <div class="schedule-main">
+
+                    <span>💶</span>
+
+                    <div>
+                        <strong>Pago</strong>
+                        <p>Se paga al recoger el pedido</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="scheduleChanges"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMACION -->
+
+    <section class="section section-dark" id="informacion">
+
+        <div class="container info-grid">
+
+            <div>
+                <span class="eyebrow">INFORMACIÓN</span>
+
+                <h2>
+                    ¿No has hecho pedido?
+                </h2>
+
+                <p>
+                    No pasa nada. Puedes venir directamente
+                    durante el recreo y comprar los productos
+                    que estén disponibles.
+                </p>
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">🎒</div>
+
+                <h3>Recogida</h3>
+
+                <p>
+                    Busca el punto de recogida durante
+                    el recreo y dinos tu nombre o número
+                    de pedido.
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-icon">📦</div>
+
+                <h3>Disponibilidad</h3>
+
+                <p>
+                    Los pedidos anticipados nos ayudan
+                    a preparar mejor el servicio.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- CARRITO -->
+
+<div class="overlay" id="cartOverlay"></div>
+
+<aside class="cart-panel" id="cartPanel">
+
+    <div class="cart-header">
+
+        <div>
+            <span class="eyebrow">TU PEDIDO</span>
+            <h2>Carrito</h2>
+        </div>
+
+        <button class="close-button" id="closeCart">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cartItems" class="cart-items"></div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">0,00 €</strong>
+        </div>
+
+        <button class="btn btn-primary full" id="checkoutButton">
+            Continuar
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- CHECKOUT -->
+
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-card">
+
+        <button class="close-button modal-close" id="closeCheckout">
+            ×
+        </button>
+
+        <span class="eyebrow">FINALIZAR PEDIDO</span>
+
+        <h2>Datos del pedido</h2>
+
+        <p class="modal-description">
+            El pedido se paga al recogerlo.
+        </p>
+
+        <form id="orderForm">
+
+            <label>
+                Nombre
+                <input
+                    type="text"
+                    id="customerName"
+                    required
+                    placeholder="Tu nombre"
+                >
+            </label>
+
+
+            <label>
+                Curso / grupo
+                <input
+                    type="text"
+                    id="customerGroup"
+                    placeholder="Ej. 3º ESO"
+                >
+            </label>
+
+
+            <label>
+                Notas
+                <textarea
+                    id="customerNotes"
+                    rows="3"
+                    placeholder="Alguna indicación..."
+                ></textarea>
+            </label>
+
+
+            <div class="checkout-summary">
+
+                <span>Total</span>
+
+                <strong id="checkoutTotal">
+                    0,00 €
+                </strong>
+
+            </div>
+
+
+            <button class="btn btn-primary full" type="submit">
+                Confirmar pedido
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- CONFIRMACION -->
+
+<div class="modal" id="successModal">
+
+    <div class="modal-card success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <span class="eyebrow">PEDIDO CONFIRMADO</span>
+
+        <h2>¡Pedido recibido!</h2>
+
+        <p>
+            Guarda tu número de pedido para recogerlo.
+        </p>
+
+        <div class="order-number" id="orderNumber">
+            RE-0000
+        </div>
+
+        <p class="small">
+            Recogida: 11:15–11:45<br>
+            Pago: al recoger
+        </p>
+
+        <button
+            class="btn btn-primary full"
+            id="closeSuccess"
+        >
+            Entendido
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+            <strong>🍊 Recreo 2026-27</strong>
+            <p>Servicio de recreo.</p>
+        </div>
+
+        <div>
+            <strong>Horario</strong>
+            <p>11:15 – 11:45</p>
+        </div>
+
+        <div>
+            <strong>Pedidos</strong>
+            <p>Hasta las 15:00 del día anterior.</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Recreo 2026-27
+    </div>
+
+</footer>
+
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
