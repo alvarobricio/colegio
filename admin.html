@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Zona personal | Recreo 2026-27</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body class="admin-body">
+
+<header class="site-header">
+
+    <div class="container nav">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🍊</span>
+
+            <span>
+                <strong>Recreo</strong>
+                <small>Zona personal</small>
+            </span>
+        </a>
+
+        <a href="index.html" class="btn btn-secondary">
+            ← Web pública
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="admin-main">
+
+    <div class="container">
+
+        <div class="admin-title">
+
+            <div>
+                <span class="eyebrow">PANEL INTERNO</span>
+
+                <h1>
+                    Zona personal
+                </h1>
+
+                <p>
+                    Control del servicio, pedidos y ventas.
+                </p>
+            </div>
+
+            <div class="admin-date" id="adminDate"></div>
+
+        </div>
+
+
+        <!-- ESTADISTICAS -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <span>Pedidos</span>
+                <strong id="statOrders">0</strong>
+                <small>hoy</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Ventas</span>
+                <strong id="statSales">0,00 €</strong>
+                <small>hoy</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Ticket medio</span>
+                <strong id="statAverage">0,00 €</strong>
+                <small>por pedido</small>
+            </div>
+
+            <div class="stat-card">
+                <span>Objetivo</span>
+                <strong id="statGoal">0%</strong>
+                <small>3.000 €</small>
+            </div>
+
+        </section>
+
+
+        <!-- OBJETIVO -->
+
+        <section class="admin-card">
+
+            <div class="card-top">
+
+                <div>
+                    <span class="eyebrow">OBJETIVO</span>
+
+                    <h2>
+                        Progreso hacia 3.000 €
+                    </h2>
+                </div>
+
+                <strong id="goalAmount">
+                    0 €
+                </strong>
+
+            </div>
+
+            <div class="progress">
+                <div
+                    id="goalProgress"
+                    class="progress-bar"
+                ></div>
+            </div>
+
+            <p id="goalText">
+                Cargando...
+            </p>
+
+        </section>
+
+
+        <!-- PEDIDOS -->
+
+        <section class="admin-card">
+
+            <div class="card-top">
+
+                <div>
+                    <span class="eyebrow">OPERATIVA</span>
+
+                    <h2>
+                        Pedidos
+                    </h2>
+                </div>
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="renderAdmin()"
+                >
+                    ↻ Actualizar
+                </button>
+
+            </div>
+
+
+            <div class="order-filters">
+
+                <button
+                    class="filter active"
+                    data-filter="all"
+                >
+                    Todos
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="pending"
+                >
+                    Pendientes
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="preparing"
+                >
+                    Preparando
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="ready"
+                >
+                    Listos
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="delivered"
+                >
+                    Entregados
+                </button>
+
+            </div>
+
+
+            <div
+                id="adminOrders"
+                class="admin-orders"
+            ></div>
+
+        </section>
+
+
+        <!-- EVENTOS -->
+
+        <section class="admin-card">
+
+            <div class="card-top">
+
+                <div>
+                    <span class="eyebrow">CONTENIDO</span>
+
+                    <h2>
+                        Próximos eventos
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="adminEvents"></div>
+
+        </section>
+
+
+        <!-- PERSONAL -->
+
+        <section class="admin-card">
+
+            <div class="card-top">
+
+                <div>
+                    <span class="eyebrow">EQUIPO</span>
+
+                    <h2>
+                        Personal
+                    </h2>
+                </div>
+
+            </div>
+
+            <div
+                id="staffList"
+                class="staff-list"
+            ></div>
+
+        </section>
+
+
+        <!-- PRODUCTOS -->
+
+        <section class="admin-card">
+
+            <div class="card-top">
+
+                <div>
+                    <span class="eyebrow">INVENTARIO</span>
+
+                    <h2>
+                        Disponibilidad
+                    </h2>
+                </div>
+
+            </div>
+
+            <div
+                id="inventoryList"
+                class="inventory-list"
+            ></div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>
