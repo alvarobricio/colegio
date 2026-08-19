@@ -1,3 +1,65 @@
+const API_URL =
+    "https://script.google.com/a/macros/mercedariastarancon.com/s/AKfycbz8qhgu8NmiqldGekFHKyGk4dxg428jLpjuiW0z5-intJ77r-GcyA_vfvzyl1ppQIfMKw/exec";
+
+
+async function checkAdminAccess() {
+
+    try {
+
+        const response = await fetch(
+            `${API_URL}?action=me`,
+            {
+                method: "GET",
+                credentials: "include"
+            }
+        );
+
+
+        if (!response.ok) {
+            return;
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.ok &&
+            data.authorized &&
+            data.user &&
+            data.user.activo &&
+            data.user.rol === "ADMIN"
+        ) {
+
+            const adminLink =
+                document.getElementById("adminLink");
+
+
+            if (adminLink) {
+                adminLink.hidden = false;
+            }
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "No se pudo comprobar el acceso de administración:",
+            error
+        );
+
+    }
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    checkAdminAccess
+);
+
+
 let cart = [];
 
 let selectedCategory = "todos";
