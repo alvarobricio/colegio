@@ -1,5 +1,5 @@
 const API_URL =
-    "https://script.google.com/a/macros/mercedariastarancon.com/s/AKfycbz8qhgu8NmiqldGekFHKyGk4dxg428jLpjuiW0z5-intJ77r-GcyA_vfvzyl1ppQIfMKw/exec";
+    "https://script.google.com/macros/s/AKfycbz8qhgu8NmiqldGekFHKyGk4dxg428jLpjuiW0z5-intJ77r-GcyA_vfvzyl1ppQIfMKw/exec";
 
 
 async function apiGet(action) {
