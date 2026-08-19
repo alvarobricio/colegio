@@ -1,8 +1,14 @@
 # 🍊 Recreo 2026-27
 
-Web de pedidos y gestión para el servicio de recreo.
+Web de pedidos y gestión para el servicio de recreo del centro.
+
+La aplicación está pensada para que el alumnado pueda consultar el
+menú y realizar pedidos, mientras que el personal autorizado dispone
+de una zona de administración.
 
 ## Funciones
+
+### Zona pública
 
 - Menú
 - Snacks
@@ -18,56 +24,36 @@ Web de pedidos y gestión para el servicio de recreo.
 - Noticias
 - Cambios de horario
 - Información del servicio
-- Zona personal
-- Pedidos
+
+### Administración
+
+- Dashboard
+- Gestión de pedidos
 - Estados de pedido
+- Personal
+- Inventario
 - Ventas
 - Ticket medio
-- Objetivo de 3.000 €
-- Inventario
+- Objetivo de ventas
+- Auditoría
+- Control de usuarios administradores
+- Control de acceso mediante Google Workspace
 
-## Ejecutar
+## Arquitectura
 
-No necesita servidor para la primera versión.
+La aplicación utiliza una arquitectura separada entre frontend y
+backend:
 
-Se puede abrir:
-
-index.html
-
-La zona personal está en:
-
-admin.html
-
-## Google Sheets
-
-La versión actual utiliza datos locales para poder desarrollar la interfaz.
-
-La siguiente fase conectará:
-
-Web
-↓
-Google Apps Script
-↓
+```text
+GitHub Pages
+    │
+    ├── index.html
+    ├── admin.html
+    ├── css/
+    └── js/
+          │
+          ▼
+Google Apps Script API
+          │
+          ▼
 Google Sheets
-
-Las hojas recomendadas son:
-
-- MENU
-- PEDIDOS
-- PERSONAL
-- HORARIOS
-- EVENTOS
-- AVISOS
-- INVENTARIO
-- CONFIGURACION
-- VENTAS
-
-## Importante
-
-La zona de administración necesita autenticación antes de utilizarse
-en producción.
-
-Los pedidos de la versión local se almacenan en localStorage.
-
-Cuando se conecte Google Sheets, localStorage será sustituido por la
-API de Google Apps Script.
