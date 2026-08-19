@@ -1,13 +1,118 @@
+const API_URL =
+    "https://script.google.com/a/macros/mercedariastarancon.com/s/AKfycbz8qhgu8NmiqldGekFHKyGk4dxg428jLpjuiW0z5-intJ77r-GcyA_vfvzyl1ppQIfMKw/exec";
+
+
+async function apiGet(action) {
+
+    const response = await fetch(
+        `${API_URL}?action=${encodeURIComponent(action)}`,
+        {
+            method: "GET",
+            credentials: "include"
+        }
+    );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            `API HTTP ${response.status}`
+        );
+
+    }
+
+
+    const data =
+        await response.json();
+
+
+    if (!data.ok) {
+
+        throw new Error(
+            data.message ||
+            "Error de API"
+        );
+
+    }
+
+
+    return data;
+
+}
+
+
 let adminFilter = "all";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
 
-    setupFilters();
+    try {
 
-    renderAdmin();
+        const me =
+            await apiGet("me");
+
+        console.log(
+            "Usuario autenticado:",
+            me.user
+        );
+
+
+        if (
+            !me.authorized ||
+            !me.user ||
+            !me.user.activo
+        ) {
+
+            document.body.innerHTML = `
+                <main style="
+                    padding:40px;
+                    text-align:center;
+                    font-family:sans-serif;
+                ">
+                    <h1>Acceso denegado</h1>
+                    <p>
+                        No tienes permisos para acceder
+                        a la administración.
+                    </p>
+                </main>
+            `;
+
+            return;
+
+        }
+
+
+        setupFilters();
+
+        renderAdmin();
+
+
+    } catch (error) {
+
+        console.error(
+            "Error conectando con la API:",
+            error
+        );
+
+
+        document.body.innerHTML = `
+            <main style="
+                padding:40px;
+                text-align:center;
+                font-family:sans-serif;
+            ">
+                <h1>Error de conexión</h1>
+                <p>
+                    No se ha podido conectar
+                    con el servidor.
+                </p>
+            </main>
+        `;
+
+    }
 
 });
+
 
 
 function money(value) {
